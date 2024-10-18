@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+  <body>
+    <div class="heropage">
+      <header>
+        <div class="log">
+          <h2>Smi<span>thz</span></h2>
+        </div>
+        <nav>
+          <ul class="navbar" id="nav-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="/allprod.html">Product</a></li>
+            <li><a href="cartogerypage.html">Category</a></li>
+          </ul>
+        </nav>
+
+        <div class="iconify">
+          <div class="icon">
+            <a href="./cartpage.html"
+              ><img src="./SVJ/cart-svgrepo-com.svg" alt=""
+            /></a>
+            <span id="cart-count" class="cart-count">0</span>
+          </div>
+          <div class="login">
+            <a href="./signup.html"> <button>login</button></a>
+            <a href="signin.html" id="logout-btn" style="display: none">
+              <button>Logout</button></a
+            >
+          </div>
+          <div class="hambuger" id="hamburg">
+            <img src="./SVJ/hamburger.svg" alt="" />
+          </div>
+        </div>
+      </header>
+
+      <!-- section starts -->
+      <div class="section1">
+        <div class="section1_holder">
+          <div class="section1_text">
+            <h1>Comfortable Gadgets With Great Comfort</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.Adipisci
+              delectus, quidem omnis aliquam nesciunt iste officia corporis
+              exercitationem dolorum quibusdam.
+            </p>
+          <a href="allprod.html">  <button class="btn1">Shop Now</button></a>
+          </div>
+          <div class="sec1_image">
+           <img src="./image/phones/11-removebg-preview.png" alt="">
+          </div>
+        </div>
+      </div>
+      <!-- section 1 ends -->
+    </div>
+    <!-- heropage ends here -->
+
+    <!-- section2 start here -->
+    <div class="section2">
+      <div class="titlefeature">
+        <h3>Featured Product</h3>
+      </div>
+      <div class="section2_holder">
+        <div class="sec2_wrap">
+          <!-- all card wrap -->
+          <div class="card-wrap">
+            <!-- card 1 -->
+
+            <div class="sec2_image">
+              <div class="image-card">
+                <img src="./image/power banks/powerbank 27.jpg"
+                  alt="" 
+                  onclick="viewProductDetails('Power Bank', 48000, './image/power banks/powerbank 27.jpg')"/>
+              </div>
+              <div class="textside">
+                <p>Power Bank</p>
+                <div class="money">
+                  <h2>48000</h2>
+                  <button
+                  class="button"
+                  onclick="addToCart('Power Bank', 48000, './image/power banks/powerbank 27.jpg')"
+                >
+                  Add to Cart
+                </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- card 2 -->
+
+            <div class="sec2_image">
+              <div class="image-card">
+                <img src="./image/power banks/phone 18.jpg" alt="">
+                <!-- onclick="viewProductDetails('Power Bank', 48000, './image/power banks/powerbank 27.jpg')" -->
+              </div>
+              <div class="textside">
+                <p>IPhone 12</p>
+                <div class="money">
+                  <h2>590000</h2>
+                  <button
+                  class="button"
+                  onclick="addToCart('Iphone 12', 590000, '/image/power banks/phone 18.jpg')"
+                >
+                  Add to Cart
+                </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- card 3 -->
+
+            <div class="sec2_image">
+              <div class="image-card">
+                <a href="./detailpage.html">
+                  <img
+                    src="./image/pexels-alex-kinkate-205926-removebg-preview.png"
+                    alt=""
+                /></a>
+              </div>
+              <div class="textside">
+                <p>Headset</p>
+                <div class="money">
+                  <h2>27000</h2>
+                  <button
+                  class="button"
+                  onclick="addToCart('Headset', 270000, './image/pexels-alex-kinkate-205926-removebg-preview.png')"
+                >
+                  Add to Cart
+                </button>
+                </div>
+              </div>
+            </div>
+
+             <!-- card 4 -->
+
+            <div class="sec2_image">
+              <div class="image-card">
+                <a href="./detailpage.html">
+                  <img
+                    src="./image/78bfa893270a0b531705b1c56f25674d-removebg-preview.png"
+                    alt=""
+                /></a>
+              </div>
+              <div class="textside">
+                <p>Apple Laptop</p>
+                <div class="money">
+                  <h2>950000</h2>
+                  <button
+                  class="button"
+                  onclick="addToCart('Apple Laptop', 950000, './image/78bfa893270a0b531705b1c56f25674d-removebg-preview.png')"
+                >
+                  Add to Cart
+                </button>
+                </div>
+              </div>
+            </div>
+        
+            <!-- all card end here -->
+
+            <div class="sec2_image1">
+              <div class="sec2_textsides">
+                <h1>Beautiful Gadgets</h1>
+                <p>
+                  From #90,00 Long lasting and confortable to use. This is only
+                  for you.
+                </p>
+               <a href="allprod.html"> <button class="btn2">Shop Now</button></a>
+              </div>
+
+              <div class="sec2_image12">
+              <img src="./image/pexels-alex-kinkate-205926-removebg-preview.png" alt="">
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- section2 ends here -->
+
+    <!-- section3 start here -->
+    <div class="section3">
+      <div class="titlefeature">
+        <h3>Our Product</h3>
+      </div>
+      <div class="sec3_navholder">
+        <nav>
+          <ul class="navs">
+            <li><a href="./allprod.html">All product</a></li>
+            <li><a href="./laptop.html">Laptop</a></li>
+            <li><a href="./Phone.html">Phones</a></li>
+            <li><a href="./headset.html">Headset</a></li>
+            <li><a href="./powerbanks.html">Power Bank</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- All card  wrapper -->
+      <div class="sec3_wrapper">
+        <div class="sec3_card">
+          <!-- card 1 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img
+                src="./image/78bfa893270a0b531705b1c56f25674d-removebg-preview.png"
+                alt="" onclick = "viewProductDetails('Apple Core i7', 1200000, './image/78bfa893270a0b531705b1c56f25674d-removebg-preview.png' )"
+              />
+            </div>
+            <div class="textside">
+              <p>Apple Core i7</p>
+              <div class="money">
+                <h4>1200000</h4>
+                <button
+                  class="button"
+                  onclick="addToCart('Apple corei7', 1200000, './image/78bfa893270a0b531705b1c56f25674d-removebg-preview.png')"
+                >
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 2 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img
+                src="./image/powerbank/12-removebg-preview (1).png"
+                alt=""
+              />
+            </div>
+            <div class="textside">
+              <p>Secno Power Bank</p>
+              <div class="money">
+                <h4>58000</h4>
+                <button
+                class="button"
+                onclick="addToCart('Secno Power Bank', 58000, './image/78bfa893270a0b531705b1c56f25674d-removebg-preview.png')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 3 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/headsets 5.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>JBL Airpod</p>
+              <div class="money">
+                <h4>18500</h4>
+                <button
+                class="button"
+                onclick="addToCart('JBL Airpod', 185000, './image/power banks/headsets 5.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 4 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/phone 17.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>Iphone 12pro </p>
+              <div class="money">
+                <h4>950000</h4>
+                <button
+                class="button"
+                onclick="addToCart('Iphone 12pro', 950000, './image/power banks/phone 17.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 5 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/headsets 22.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>Headset copy</p>
+              <div class="money">
+                <h4>95000</h4>
+                <button
+                class="button"
+                onclick="addToCart('Headset copy', 95000, './image/power banks/headsets 22.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 6 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/powerbank 15.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>KSF</p>
+              <div class="money">
+                <h4>48000</h4>
+                <button
+                class="button"
+                onclick="addToCart('KSF', 48000, './image/power banks/powerbank 15.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 7 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/headsets 1.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>Sony X225 Airpod</p>
+              <div class="money">
+                <h4>100000</h4>
+                <button
+                class="button"
+                onclick="addToCart('Sony Airpod', 1000000, '/image/power banks/headsets 1.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 8 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/phone 12.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>Redmi</p>
+              <div class="money">
+                <h4>125000</h4>
+                <button
+                class="button"
+                onclick="addToCart('Redim', 125000, './image/power banks/phone 12.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 9 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/powerbank 26.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>Oraimo</p>
+              <div class="money">
+                <h4>55000</h4>
+                <button
+                class="button"
+                onclick="addToCart('Oraimo', 55000, './image/power banks/powerbank 26.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 10 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/phone 16.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>Iphone 11pro</p>
+              <div class="money">
+                <h4>658000</h4>
+                <button
+                class="button"
+                onclick="addToCart('Iphone 11pro', 658000, './image/power banks/phone 16.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 11 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/laptop16.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>Mack book 2023</p>
+              <div class="money">
+                <h4>890000</h4>
+                <button
+                class="button"
+                onclick="addToCart('Apple', 890000, './image/power banks/laptop16.jpg')"
+              >
+                Add to Cart
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- card 12 -->
+          <div class="sec2_image">
+            <div class="image-card">
+              <img src="./image/power banks/powerbank 14.jpg" alt=""
+              /></a>
+            </div>
+            <div class="textside">
+              <p>Solar powerbank</p>
+              <div class="money">
+                <h4>58000</h4>
+                <button
+                  class="money button"
+                  onclick="addToCart('Solar powerbank', 58000, './image/power banks/powerbank 14.jpg')"
+                >
+                  Add to Cart
+                </button>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- section3 ends here -->
+
+    <!-- section4 start here -->
+    <div class="section4">
+      <div class="titlefeature">
+        <h3>Discounts</h3>
+      </div>
+      <div class="sec4_holder">
+        <!-- wrapper of text and image -->
+        <div class="sec4_card">
+          <div class="sec4_textside">
+            <div class="sec4_textholder">
+              <div class="writeup">
+                <h2>DISCOUNTS</h2>
+                <h2>Up To <span>50%</span> This Season</h2>
+              </div>
+            </div>
+          </div>
+          <div class="sec4_imageside">
+            <div class="sec4-image">
+            <img src="./image/2198b3ef96e2a1a7027664cd569d23ec-removebg-preview.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- section4 ends here -->
+
+    <!-- section5 start here -->
+    <div class="section5">
+      <div class="titlefeature">
+        <h3>Lastest News</h3>
+      </div>
+      <div class="sec5_cardholder">
+        <div class="sec5_card">
+          <img
+            src="./image/3bbdd807719bf0dd24cc6adc9ed432fc-removebg-preview.png"
+            alt=""
+          />
+        </div>
+        <div class="sec5_card">
+          <img src="./image/power banks/headsets 16.jpg" alt=""
+          /></a>
+        </div>
+        <div class="sec5_card">
+          <img src="./image/power banks/laptop15.jpg" alt=""
+          /></a>
+        </div>
+        <div class="sec5_card">
+          <div class="sec5_card">
+            <img src="./image/power banks/phone 2.jpg" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- section5 ends here -->
+
+    <!-- footer start here -->
+    <footer class="footer">
+      <!-- footer wrapper -->
+      <div class="footerinfo">
+        <div class="footer_header1">
+          <div class="logo1">
+            <h2>Smi<span>thz</span></h2>
+          </div>
+          <div class="footertext">
+            <p>
+              2 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Est,enim exercitationem unde molestiae. Neque.
+            </p>
+          </div>
+          <div class="icon_social">
+            <div class="icon1">
+              <img src="./SVJ/facebook-1-svgrepo-com.svg" alt="" />
+            </div>
+            <div class="icon1">
+              <img src="./SVJ/linkedin-svgrepo-com-1.svg" alt="" />
+            </div>
+            <div class="icon1">
+              <img src="./SVJ/instagram-2-1-logo-svgrepo-com.svg" alt="" />
+            </div>
+            <div class="icon1">
+              <img src="./SVJ/twitter-color-svgrepo-com.svg" alt="" />
+            </div>
+            <div class="icon1">
+              <img src="./SVJ/telegram1-logo-svgrepo-com.svg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="footer_header2">
+          <div class="logo1">
+            <h2>People</h2>
+          </div>
+          <div class="footertext2">
+            <p>My Account</p>
+            <p>Check Out</p>
+            <p>Help</p>
+            <p>Support</p>
+            <p>FAQ</p>
+          </div>
+        </div>
+        <div class="footer_header3">
+          <div class="logo1">
+            <h2>Contact Us</h2>
+          </div>
+          <div class="footertext2">
+            <div class="location">
+              <div class="img">
+                <img src="./SVJ/location-pin-map-svgrepo-com.svg" alt="">
+              </div>
+              <div class="add">
+                <p>98 Oshodi Apapa lagos state</p>
+              </div>
+            </div>
+            <div class="location">
+              <div class="img">
+                <img src="./SVJ/call-receive-svgrepo-com.svg" alt="">
+              </div>
+              <div class="add">
+                <p>+2348162371152</p>
+              </div>
+            </div>
+            <div class="location">
+              <div class="img">
+                <img src="./SVJ/telegram1-logo-svgrepo-com.svg" alt="">
+              </div>
+              <div class="add">
+                <p>amara48@gmail.com</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer_header4">
+          <div class="logo1">
+            <h2>Join to Newsletter</h2>
+          </div>
+          <div class="footertext">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, at?</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // add to cart function that saves to localStorage
+      const addToCart = (productName, price, imageUrl) => {
+        // Fetch cart from localStorage or initialize as an empty array
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existingProduct = cart.find((item) => item.name === productName);
+
+        if (existingProduct) {
+          // Increase quantity if product exists
+          existingProduct.quantity += 1;
+        } else {
+          // Add new product to the cart if it doesn't exist
+          const newProduct = {
+            name: productName,
+            price: price,
+            image: imageUrl,
+            quantity: 1,
+          };
+          cart.push(newProduct);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("product has been add to cart")
+        // Swal.fire({
+        //   title: "Added to Cart!",
+        //   text: `${productName} has been added to your cart.`,
+        //   icon: "success",
+        //   confirmButtonText: "Cool!",
+        //   timer: 2000, // Set the timer to 3000ms (3 seconds)
+        //   timerProgressBar: true, // Show a progress bar during the timer
+        // });
+
+        // Update cart count in the cart-icon
+        updateCartCount();
+      };
+
+      const viewProductDetails = (name, price, imageUrl) => {
+        const productDetails = {
+          name: name,
+          price: price,
+          imageUrl: imageUrl,
+        };
+        localStorage.setItem("selectedProduct", JSON.stringify(productDetails));
+        // Redirect to product details page
+        window.location.href = "/detail page/detail.html";
+      };
+
+      // function to update cart icon count
+      const updateCartCount = () => {
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const totalItem = cart.reduce((acc, item) => acc + item.quantity, 0);
+        document.getElementById("cart-count").textContent = totalItem;
+
+        const cartCountElement = document.getElementById("cart-count"); // Select the cart count element
+        cartCountElement.textContent = totalItem; // Update the text content with total items
+
+        // Show or hide the badge based on totalItem
+        if (totalItem > 0) {
+          cartCountElement.style.display = "inline-block"; // Show badge if count > 0
+        } else {
+          cartCountElement.style.display = "none"; // Hide badge if count is 0
+        }
+      };
+      window.onload = updateCartCount;
+
+      document.getElementById("hamburg")?.addEventListener("click", () => {
+        document.getElementById("nav-menu")?.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
