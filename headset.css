@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    font-family: "Montserrat", system-ui;
+}
+
+.heropage {
+    /* height: 100vh; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(128, 128, 128, 0.342);
+}
+
+header {
+    width: 80%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px black solid;
+}
+
+.log {
+    display: flex;
+    align-items: center;
+}
+
+.log h2 {
+    font-size: 28px;
+    font-weight: 700 bold;
+}
+
+.log span {
+    color: orangered;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 40px;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar a:hover {
+    color: orangered;
+}
+
+.iconify {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    height: 30px;
+    width: 30px;
+    padding: 10px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.icon img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.cart-count {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: orangered;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    text-align: center;
+}
+
+.login button {
+    padding: 6px 25px;
+    border-radius: 6px;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 17px;
+    transition: all 0.5s ease-in-out;
+}
+
+.login button:hover {
+    background-color: rgba(0, 0, 0, 0.748);
+}
+
+.hambuger {
+    display: none;
+}
+
+.section1 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+}
+
+.titlefeature {
+    font-size: 36px;
+}
+
+.section1_holder {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sec2_wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.card-wrap {
+    display: flex;
+    width: 100%;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.sec2_image {
+    width: 260px;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-card {
+    width: 100%;
+    height: 210px;
+}
+
+.image-card img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.textside {
+    padding: 2px 15px;
+    border: 1px solid;
+    border-top: 0px;
+    border-radius: 0px 0px 7px 7px;
+}
+
+.textside p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.money {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.money button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    transition: all 0.5s ease;
+}
+
+.money button:hover {
+    background-color: rgba(0, 0, 0, 0.72);
+}
+
+.footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .footerinfo{
+    width: 80%;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer_header1{
+    width: 270px;
+    height: 200px;
+  }
+  .logo1 {
+    width: 100%;
+  }
+  .logo1 h2 span {
+    color: red;
+  }
+  .footertext p {
+    width: 95%;
+    font-weight:  700 lighter;
+    font-size: 15px;
+  }
+  .icon_social {
+    height: 50px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .icon1 {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 100%;
+  }
+  .icon1 img {
+    height: 100%;
+    width: 100%;
+  }
+  .footer_header2 {
+    width: 200px;
+    height: 200px;
+  }
+  .footertext2 {
+    width: 95%;
+    font-weight:  700 lighter;
+    font-size: 15px;
+    line-height: 10px;
+  }
+  .footer_header3{
+    width: 250px;
+    height: 200px;
+  }
+  .location {
+    width: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .img {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+  }
+  .img img {
+    height: 100%;
+    width: 100%;
+  }
+  .add{
+    width: 195px;
+  }
+  .footer_header4{
+    width: 350px;
+    height: 200px;
+  }

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detailpage</title>
+    <link rel="stylesheet" href="detailpage.css" />
+  </head>
+  <body>
+    <div class="heropage">
+      <header>
+        <div class="log">
+          <h2>Smi<span>thz</span></h2>
+        </div>
+        <nav>
+          <ul class="navbar" id="nav-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="/allprod.html">Product</a></li>
+            <li><a href="cartogerypage.html">Category</a></li>
+          </ul>
+        </nav>
+
+        <div class="iconify">
+          <div class="icon">
+            <a href="./cartpage.html"
+              ><img src="./SVJ/cart-svgrepo-com.svg" alt=""
+            /></a>
+            <span id="cart-count" class="cart-count">0</span>
+          </div>
+          <div class="login">
+            <a href="./signup.html"> <button>login</button></a>
+            <a href="signin.html" id="logout-btn" style="display: none">
+              <button>Logout</button></a
+            >
+          </div>
+          <div class="hambuger" id="hamburg">
+            <img src="./SVJ/hamburger.svg" alt="" />
+          </div>
+        </div>
+      </header>
+      <div class="section1">
+        <div class="product_details">
+          <div class="imageside">
+            <div class="productimage">
+              <img src="" alt="" id="product-image"/>
+            </div>
+          </div>
+          <div class="textside">
+            <div class="productname">
+              <h3 id="product-name"></h3>
+            </div>
+
+            <div class="description">
+              <div class="thetext">
+                <h4>DISCRIPTION</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Repellendus fuga enim nisi eligendi quidem! Saepe ut
+                  recusandae necessitatibus deleniti tenetur.
+                </p>
+              </div>
+
+              <div class="quantity">
+                <h4>QTY</h4>
+                <div class="rate">
+                  <h4 onclick="decrementQuantity()">-</h4>
+                  <p id="product-quantity"></p>
+                  <h4 onclick="incrementQuantity()">+</h4>
+                </div>
+              </div>
+
+              <div class="price">
+                <h1 id="product-price"></h1>
+                <button onclick="addToCart()" class="addtocart">
+                  <p>Add to cart</p>
+                </button>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        const product = JSON.parse(localStorage.getItem("selectedProduct"))
+        if(product){
+          document.getElementById("product-image").src = product.imageUrl
+          document.getElementById("product-name").textContent = product.name
+          document.getElementById("product-price").textContent = `₦${product.price}`
+  
+          const quantity = JSON.parse(localStorage.getItem("cart")) || []
+          const cartItem = quantity.find(item => item.name === product.name)
+  
+          if(cartItem){
+            document.getElementById("product-quantity").textContent = `${cartItem.quantity}`
+          }else {
+            document.getElementById("product-quantity").textContent = "1"; // Default quantity
+          }
+        }
+  
+        const addToCart = () =>{
+          const cart = JSON.parse(localStorage.getItem("cart")) || []
+          const existingProduct = cart.find(item => item.name === product.name);
+  
+          if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      cart.push({
+        name: product.name,
+        price: product.price,
+        imageUrl: product.imageUrl,
+        quantity: 1
+      });
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartCount();
+    //update the quantity displayed on the product page
+    document.getElementById("product-quantity").textContent = cart.find(item => item.name === product.name).quantity;
+        }
+      function incrementQuantity() {
+        const cart = JSON.parse(localStorage.getItem("cart")) || []
+        const cartItem = cart.find(item => item.name === product.name)
+  
+        if(cartItem){
+          cartItem.quantity += 1
+          localStorage.setItem("cart", JSON.stringify(cart))
+          document.getElementById("product-quantity").textContent = cartItem.quantity
+          updateCartCount()
+        }
+    }
+  
+    function decrementQuantity() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || []
+        const cartItem = cart.find(item => item.name === product.name)
+  
+        if(cartItem && cartItem.quantity > 1){
+          cartItem.quantity -= 1
+          localStorage.setItem("cart", JSON.stringify(cart))
+          document.getElementById("product-quantity").textContent = cartItem.quantity
+          updateCartCount()
+        }
+    }
+  
+         // function to update cart icon count
+         const updateCartCount = () => {
+          const cart = JSON.parse(localStorage.getItem("cart")) || [];
+          const totalItem = cart.reduce((acc, item) => acc + item.quantity, 0);
+          document.getElementById("cart-count").textContent = totalItem;
+        };
+        window.onload = updateCartCount;
+  
+      </script>
+  </body>
+</html>

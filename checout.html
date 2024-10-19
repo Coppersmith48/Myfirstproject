@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="checout.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Checkout Page</h1>
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <table id="checkout-table">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Order items will be injected here using JavaScript -->
+          </tbody>
+        </table>
+
+        <div class="total-summary">
+          <p>Subtotal: <span id="subtotal">₦0</span></p>
+          <p>Shipping: <span>Free</span></p>
+          <h3>Total: <span id="total">₦0</span></h3>
+        </div>
+
+        <button id="checkout-btn">Confirm Checkout</button>
+      </div>
+    </div>
+
+    <script>
+      // Get cart data from localStorage
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      // Function to calculate and display the order summary
+      function displayOrderSummary() {
+        const checkoutTableBody = document.querySelector(
+          "#checkout-table tbody"
+        );
+        checkoutTableBody.innerHTML = ""; // Clear any existing data
+
+        let subtotal = 0;
+
+        // Loop through the cart and display each item
+        cart.forEach((item) => {
+          const row = document.createElement("tr");
+
+          row.innerHTML = `
+            <td>${item.name}</td>
+            <td>₦${item.price.toFixed(2)}</td>
+            <td>${item.quantity}</td>
+            <td>₦${(item.price * item.quantity).toFixed(2)}</td>
+        `;
+
+          checkoutTableBody.appendChild(row);
+
+          // Calculate subtotal
+          subtotal += item.price * item.quantity;
+        });
+
+        // Display the subtotal and total
+        document.getElementById("subtotal").innerText = `₦${subtotal.toFixed(
+          2
+        )}`;
+        document.getElementById("total").innerText = `₦${subtotal.toFixed(2)}`;
+      }
+
+      // Call the function to display the cart items on page load
+      displayOrderSummary();
+
+      // Function for handling the checkout
+      document
+        .getElementById("checkout-btn")
+        .addEventListener("click", function () {
+          if (cart.length === 0) {
+            Swal.fire({
+              icon: "error",
+              title: "Oops...",
+              text: "Your cart is empty!",
+            });
+          } else {
+            // Show success confirmation with SweetAlert
+            Swal.fire({
+              title: "Are you sure?",
+              text: "Do you want to confirm your order?",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#28a745",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, confirm it!",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Clear the cart in localStorage
+               
+                localStorage.removeItem("cart");
+
+                Swal.fire(
+                  "Confirmed!",
+                  "Your order has been placed.",
+                  "success"
+                ).then(() => {
+                  // Redirect to a success page or reload
+                  window.location.href = "comfirmationorder.html";
+                });
+              }
+            });
+          }
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cartpage</title>
+  <link rel="stylesheet" href="./cartpage.css" />
+</head>
+
+<body>
+  <header>
+<div class="header_holder">
+  <div class="log">
+    <h2>Smi<span>thz</span></h2>
+  </div>
+  <nav>
+    <ul class="navbar" id="nav-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="/allprod.html">Product</a></li>
+      <li><a href="cartogerypage.html">Category</a></li>
+    </ul>
+  </nav>
+
+  <div class="iconify">
+    <div class="icon">
+      <a href="./cartpage.html"><img src="./SVJ/cart-svgrepo-com.svg" alt="" /></a>
+      <span id="cart-count" class="cart-count">0</span>
+    </div>
+    <div class="login">
+      <a href="./signup.html"> <button>login</button></a>
+      <a href="/index.html" id="logout-btn" style="display: none">
+        <button>Logout</button></a>
+    </div>
+    <div class="hambuger" id="hamburg">
+      <img src="./images/hamburger.svg" alt="" />
+    </div>
+  </div>
+</div>
+  </header>
+  <div class="container">
+    <h1>Your Cart</h1>
+    <div class="cart">
+      <table class="cart-items">
+        <thead>
+          <tr>
+            <th>PRODUCT</th>
+            <th>PRICE</th>
+            <th>QUANTITY</th>
+            <th>TOTAL</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Cart items will be injected here via JavaScript -->
+        </tbody>
+      </table>
+
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div class="summary-details">
+          <p>Subtotal: <span id="subtotal">₦0</span></p>
+          <p>Shipping: Free</p>
+          <hr>
+          <p>Total: <span id="total">₦0</span></p>
+          <a href="checout.html"><button id="checkout-btn" class="checkout-btn">Checkout</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- footer start here -->
+  
+  <script>
+
+    //check for the name the user used in registering in the local storage, if it exist change that login to the user name or u can change the content to logout
+    // const user = localStorage.getItem("name")
+    // if (user) {
+    //   // document.getElementById("signin").textContent = `Hi ${user}`
+    //   document.getElementById("signin-btn").style.display = "none"
+    //   document.getElementById("logout-btn").style.display = "block"
+    // } else {
+    //   document.getElementById("signin-btn").style.display = "block"
+    //   document.getElementById("logout-btn").style.display = "none"
+    // }
+
+    // //logout function
+    // const logout = () => {
+    //   localStorage.removeItem("name")
+    //   //  Reload the page to reflect the logout status
+    //   location.reload()
+    // }
+    // document.getElementById("logout-btn").addEventListener('click', logout);
+    // // function to display cart items in the cart page
+    // const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const displayCartItems = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      console.log(cart)
+      const cartContainer = document.getElementById("cart-items");
+      console.log(cartContainer)
+
+      cartContainer.innerHTML = ""
+
+      // if the cart is empty
+      if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty</p>";
+        return
+      }
+
+      // if the cart is not empty, we would create and display the cart item in the local storage
+      cart.forEach((item, index) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>
+          <img src="${item.image}" alt="${item.name}">
+          <div>${item.name}</div>
+        </td>
+        <td> ₦${item.price}</td>
+        <td>
+          <button class="quantity-btn" onclick="decrementQuantity(${index})">−</button>
+          <span>${item.quantity}</span>
+          <button class="quantity-btn" onclick="incrementQuantity(${index})">+</button>
+        </td>
+        <td> ₦${item.price * item.quantity}</td>
+        <td><button class="remove-btn" onclick="removeItem(${index})">×</button></td>
+      `;
+
+        cartContainer.appendChild(tr);
+      });
+      calculateTotal();
+    };
+
+    function incrementQuantity(index) {
+      cart[index].quantity += 1;
+      cart[index].total = cart[index].quantity * cart[index].price;
+      //save uodated cart to localstorage
+      localStorage.setItem("cart", JSON.stringify(cart))
+      // re-display the updated cart
+      displayCartItems();
+    }
+
+    function decrementQuantity(index) {
+      if (cart[index].quantity > 1) {
+        cart[index].quantity -= 1;
+        cart[index].total = cart[index].quantity * cart[index].price;
+        //save uodated cart to localstorage
+        localStorage.setItem("cart", JSON.stringify(cart))
+        // re-display the updated cart
+        displayCartItems();
+      }
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      //save uodated cart to localstorage
+      localStorage.setItem("cart", JSON.stringify(cart))
+      // re-display the updated cart
+      displayCartItems();
+      updateCartCount()
+    }
+
+    function calculateTotal() {
+      let subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+      document.getElementById('subtotal').innerText = `₦${subtotal}`;
+      document.getElementById('total').innerText = `₦${subtotal}`;
+    }
+
+    // function to update the cart-icon cart
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const totalItem = cart.reduce((acc, item) => acc + item.quantity, 0);
+      document.getElementById("cart-count").textContent = totalItem;
+
+
+      const cartCountElement = document.getElementById("cart-count"); // Select the cart count element
+      cartCountElement.textContent = totalItem; // Update the text content with total items
+
+      // Show or hide the badge based on totalItem
+      if (totalItem > 0) {
+        cartCountElement.style.display = "inline-block"; // Show badge if count > 0
+      } else {
+        cartCountElement.style.display = "none"; // Hide badge if count is 0
+      }
+    };
+
+    window.onload = updateCartCount;
+
+    document.addEventListener('DOMContentLoaded', displayCartItems);
+    // window.onload = displayCartItems;
+    document.getElementById("hamburg")?.addEventListener("click", () => {
+      document.getElementById("nav-menu")?.classList.toggle("active");
+    })
+    // Add event listener for checkout button
+    // Add event listener for checkout button
+    document.getElementById("checkout-btn").addEventListener("click", function () {
+      // Redirect to the correct checkout page inside the 'checkout' folder
+      window.location.href = "/checout.html"; // Adjust path based on your folder structure
+    });
+
+
+  </script>
+
+</body>
+
+</html>

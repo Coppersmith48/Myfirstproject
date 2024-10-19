@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in</title>
+    <link rel="stylesheet" href="./signin.css" />
+    <style>
+      .error{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- background pic -->
+    <div class="background_img">
+      <!--dim  -->
+      <div class="transparent">
+        <!-- main signin parant div.....border radi.. -->
+        <div class="signin_text">
+          <!-- sign in text -->
+          <div class="h2_holder">
+            <h2>Sign in</h2>
+          </div>
+          <!-- input/password/email/....parent div -->
+          <form id="loginForm" onsubmit="validateLogin(event)" class="input_div">
+            <div class="input_holder">
+              <div class="email_input">
+                <!-- email -->
+                <div class="Email">
+                  <p>Email</p>
+                </div>
+                <!-- input -->
+                <input id="useremail" type="email" placeholder="Johncaner@gmail.com" />
+              </div>
+              <!-- password -->
+              <div class="email_input">
+                <div class="Email">
+                  <p>Password</p>
+                </div>
+                <!-- input -->
+                <input id="password" type="password" placeholder="******" />
+              </div>
+              <!-- remember me -->
+              <div class="remember">
+           
+                <div class="remember_text">
+                  <div class="tick"></div>
+                  <p>Remember me?</p>
+                </div>
+                <div class="forgetpass">
+                  <p>Forget password?</p>
+                </div>
+              </div>
+            </div>
+            <!-- button -->
+            <div class="btn">
+                <button type="submit">
+                    <h3>SUBMIT</h3>
+                </button>
+            </div>
+            <p id="error" class="error"></p>
+          </form>
+      <p>Dont have an account? <a href="./signup.html">SIGN UP</a></p>
+        </div>
+
+       
+      </div>
+    </div>
+    <script>
+        function validateLogin(event) {
+    event.preventDefault();  // Prevent the form from reloading the page
+  
+    let errorMessage = document.getElementById("error");
+    errorMessage.innerHTML = "";  // Clear any previous error messages
+  
+    let usernameInput = document.getElementById("useremail").value;
+    let passwordInput = document.getElementById("password").value;
+  
+    // Retrieve the stored user data from localStorage
+    let storedUsername = localStorage.getItem("name");
+    let storedEmail = localStorage.getItem("email");
+    let storedPassword = localStorage.getItem("password"); // This is a placeholder password (since we didn't save it in localStorage for security reasons)
+  
+    // Check if the username (or email) and password match the stored data
+    if ((usernameInput === storedUsername || usernameInput === storedEmail) && passwordInput === storedPassword) {
+      alert("Login successful!");
+      // Redirect to a dashboard or homepage
+      window.location.href = "/home.html";  // Replace with the actual destination page
+    } else {
+      // Display an error message if the credentials don't match
+      errorMessage.innerHTML = "Invalid username/email or password.";
+    }
+  }
+    </script>
+  </body>
+</html>
